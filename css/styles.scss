@@ -1,0 +1,160 @@
+$fontSize: 16px;
+$wideWidth: 100%;
+@mixin flexBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexBlockColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin outline ($color) {
+    outline: 1px dotted $color;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: $fontSize;
+}
+
+body {
+    font-size: 1rem;
+    font-family: 'Titillium Web', Arial, sans-serif;
+    background-image: url('../img/bgpattern.png');
+    background-repeat: repeat;
+    height: 100vh;
+    width: $wideWidth;
+}
+
+.wrapper {
+    width: $wideWidth;
+    padding: 0 10%;
+}
+
+.header {
+    @include flexBlockColumn;
+    @include outline(rebeccapurple);
+    justify-content: space-around;
+    width: $wideWidth;
+    height: 30vh;
+}
+
+.header__logo {
+    @include flexBlock;
+    @include outline(red);
+    width: $wideWidth;
+}
+
+.header__title {
+    @include flexBlockColumn;
+    @include outline(wheat);
+    justify-content: center;
+    align-items: center;
+    width: $wideWidth;
+}
+
+.header__nav {
+    @include flexBlock;
+    @include outline(yellow);
+    width: $wideWidth;
+}
+
+.main {
+    @include flexBlockColumn;
+    @include outline(green);
+    width: $wideWidth;
+}
+
+.blog {
+    @include flexBlockColumn;
+    @include outline(navy);
+    width: $wideWidth;
+    height: 70vh;
+}
+
+.blog__header {
+    @include flexBlockColumn;
+    @include outline(lime);
+    justify-content: space-between;
+    height: 20vh;
+}
+
+.blog__title {
+    @include flexBlock;
+    @include outline(limegreen);
+    width: $wideWidth;
+}
+
+.blog__info {
+    @include flexBlock;
+    @include outline(darkturquoise);
+    text-align: center;
+    width: $wideWidth;
+}
+
+.blog__article {
+    @include flexBlock;
+    @include outline(fuchsia);
+    height: 50vh;
+}
+
+.footer {
+    @include flexBlock;
+    width: $wideWidth;
+}
+
+@media screen and (min-width: 420px) {
+    .wrapper {
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        font-size: 1.2rem;
+    }
+    .header {
+        flex-direction: row;
+    }
+    .header__logo {
+        width: 150px;
+    }
+    .header__nav {
+        display: none;
+    }
+    .main {
+        flex-direction: row;
+    }
+    .blog {
+        flex-direction: column;
+        width: 50%;
+    }
+    .blog__header {
+        flex-direction: row;
+    }
+    .blog__title {
+        width: 60%;
+    }
+    .blog__info {
+        width: 40%;
+    }
+    .footer {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    body {
+        font-size: 1.4rem;
+    }
+    .header__nav {
+        width: 150px;
+        display: flex;
+    }
+}
